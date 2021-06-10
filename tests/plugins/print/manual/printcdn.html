@@ -1,0 +1,16 @@
+<iframe width="800px" height="400px" id="cdn"></iframe>
+
+<script>
+    // Encapsulate environment inside iframe. 
+    // It's prevent to open CKEDITOR local version.
+    var iframe = document.getElementById('cdn'),
+        doc = iframe.contentWindow.document;
+
+        doc.open();
+      	// CDN points into commit revision with bug fix. To verify if test fails on older revision, replace CDN script with:
+		// doc.write( '<script src="https://raw.githack.com/ckeditor/ckeditor4/4.16.1/ckeditor.js"><\/script>' );
+        doc.write( '<script src="https://raw.githack.com/ckeditor/ckeditor4/4.16.1/ckeditor.js"><\/script>' );
+		doc.write( '<div id="editor"><p>example print / preview</p></div>' );
+		doc.write( '<script>CKEDITOR.replace( "editor", { plugins: "wysiwygarea, print, pagebreak, toolbar, floatingspace, link" } )<\/script>' );
+		doc.close();
+</script>
