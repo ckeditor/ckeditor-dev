@@ -183,8 +183,7 @@
 
 	function getPreviewLocation() {
 		// #(4444)
-		// if ( !CKEDITOR.env.ie && !CKEDITOR.env.gecko ) {
-		if ( !CKEDITOR.env.ie ) {
+		if ( !CKEDITOR.env.ie && !CKEDITOR.env.gecko ) {
 			return null;
 		}
 
