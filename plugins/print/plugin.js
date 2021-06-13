@@ -69,7 +69,7 @@
 				return print();
 			}
 
-			// Wait for `complete` readyState before start printing. (#4444)
+			// (#4444)
 			if ( CKEDITOR.env.gecko && !isAlreadyPrinted ) {
 				waitForCompleteState();
 			}
@@ -87,6 +87,7 @@
 				nativePreviewWindow.close();
 			}
 
+			// Wait for 5s to `complete` readyState before start printing on FF. (#4444)
 			function waitForCompleteState() {
 				var tick = 100,
 					limit = 50,
