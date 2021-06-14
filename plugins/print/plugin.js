@@ -52,8 +52,12 @@
 	 */
 	CKEDITOR.plugins.print = {
 		exec: function( editor ) {
+			// (#4444)
+			if ( CKEDITOR.env.gecko ) {
+				editor.plugins.preview.setPrintListener = true;
+			}
+
 			var previewWindow = CKEDITOR.plugins.preview.createPreview( editor ),
-				isAlreadyPrinted = false,
 				nativePreviewWindow;
 
 			if ( !previewWindow ) {
@@ -69,43 +73,12 @@
 				return print();
 			}
 
-			// (#4444)
-			if ( CKEDITOR.env.gecko && !isAlreadyPrinted ) {
-				waitForCompleteState();
-			}
-
 			previewWindow.once( 'load', print );
 
 			function print() {
-				if ( CKEDITOR.env.gecko ) {
-					nativePreviewWindow.print();
-				} else {
-					nativePreviewWindow.document.execCommand( 'Print' );
-				}
-
-				isAlreadyPrinted = true;
+				nativePreviewWindow.document.execCommand( 'Print' );
 				nativePreviewWindow.close();
 			}
-
-			// Wait for 5s to `complete` readyState before start printing on FF. (#4444)
-			function waitForCompleteState() {
-				var tick = 100,
-					limit = 50,
-					counter = 0,
-					interval;
-
-				interval = setInterval( function() {
-					if ( counter < limit && document.readyState === 'complete' ) {
-						clearInterval( interval );
-						print();
-					} else if ( counter > limit ) {
-						clearInterval( interval );
-					}
-
-					counter++;
-				}, tick );
-			}
-
 		},
 		canUndo: false,
 		readOnly: 1,
