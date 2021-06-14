@@ -113,7 +113,8 @@
 				'<link rel="stylesheet" media="screen" href="' + pluginPath + 'styles/screen.css">' +
 			'</head>' + createBodyHtml() +
 				editor.getData() +
-				checkPrintListener() + '</body>' +
+				checkPrintListener() +
+				'</body>' +
 		'</html>';
 
 		function generateBaseTag() {
@@ -160,6 +161,8 @@
 		// FF tries to start printing before page is loaded. The browser has wait for this. (#4444)
 		function checkPrintListener() {
 			if ( editor.plugins.preview.setPrintListener ) {
+				editor.plugins.preview.setPrintListener = false;
+
 				return '<script>' +
 					'document.onreadystatechange = function( evt ) { ' +
 						'if ( evt.target.readyState === "complete" ) {' +
