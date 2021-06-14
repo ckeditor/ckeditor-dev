@@ -1,9 +1,7 @@
 ﻿<script>
 
 // Prevent from DOM clobbering.
-console.log('1. try open')
 if ( typeof window.opener._cke_htmlToLoad == 'string' ) {
-	console.log('2. open')
 	var doc = document;
 	doc.open();
 	doc.write( window.opener._cke_htmlToLoad );
