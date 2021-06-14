@@ -114,8 +114,7 @@
 			'</head>' + createBodyHtml() +
 				editor.getData() +
 				checkPrintListener() +
-				'</body>' +
-		'</html>';
+			'</body></html>';
 
 		function generateBaseTag() {
 			var template = '<base href="{HREF}">',
