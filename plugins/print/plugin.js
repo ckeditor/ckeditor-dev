@@ -53,7 +53,10 @@
 	CKEDITOR.plugins.print = {
 		exec: function( editor ) {
 			// (#4444)
-			editor.plugins.preview.setPrintListener = true;
+			if ( CKEDITOR.env.gecko ) {
+				editor.plugins.preview.setPrintListener = true;
+			}
+
 			var previewWindow = CKEDITOR.plugins.preview.createPreview( editor ),
 				nativePreviewWindow;
 
