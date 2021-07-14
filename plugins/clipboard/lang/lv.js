@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'lv', {
 	paste: 'Ielīmēt',
 	pasteNotification: 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
 	pasteArea: 'Ielīmēšanas zona',
-	pasteMsg: 'Ielīmē saturu zemāk esošajā laukā un nospied OK.'
+	pasteMsg: 'Ielīmē saturu zemāk esošajā laukā un nospied OK.',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

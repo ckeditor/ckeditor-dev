@@ -9,3 +9,4 @@ paste = Toolbar button tooltip for the Paste feature and a label for the Paste d
 pasteNotification = A notification message shown when the browser is blocking pasting, and the user should use the keyboard instead. The %1 sequence is replaced with a keystroke that - when pressed - will perform the action.
 pasteArea = WAI-ARIA label for the paste area.
 pasteMsg = A help message urging the user to paste the text into the dialog window by using the keyboard.
+fileFormatNotSupportedNotification = A notification message shown when the user drops or paste into the editor a file in unsupported format.

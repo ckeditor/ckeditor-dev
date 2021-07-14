@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'fr', {
 	paste: 'Coller',
 	pasteNotification: 'Utilisez le raccourci %1 pour coller. Votre navigateur n\'accepte pas de coller à l\'aide du bouton ou du menu contextuel.',
 	pasteArea: 'Coller la zone',
-	pasteMsg: 'Collez votre contenu dans la zone de saisie ci-dessous et cliquez OK.'
+	pasteMsg: 'Collez votre contenu dans la zone de saisie ci-dessous et cliquez OK.',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

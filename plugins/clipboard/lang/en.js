@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'en', {
 	paste: 'Paste',
 	pasteNotification: 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
 	pasteArea: 'Paste Area',
-	pasteMsg: 'Paste your content inside the area below and press OK.'
+	pasteMsg: 'Paste your content inside the area below and press OK.',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.'
 } );

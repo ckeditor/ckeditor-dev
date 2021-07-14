@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'no', {
 	paste: 'Lim inn',
 	pasteNotification: 'Trykk %1 for å lime inn. På grunn av manglende støtte i nettleseren din, kan du ikke lime inn via knapperaden eller kontekstmenyen.',
 	pasteArea: 'Innlimingsområde',
-	pasteMsg: 'Lim inn innholdet i området nedenfor og trykk OK.'
+	pasteMsg: 'Lim inn innholdet i området nedenfor og trykk OK.',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

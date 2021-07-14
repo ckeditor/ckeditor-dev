@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'zh-cn', {
 	paste: '粘贴',
 	pasteNotification: '您的浏览器不支持通过工具栏或右键菜单进行粘贴，请按 %1 进行粘贴。',
 	pasteArea: '粘贴区域',
-	pasteMsg: '将您的内容粘贴到下方区域，然后按确定。'
+	pasteMsg: '将您的内容粘贴到下方区域，然后按确定。',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

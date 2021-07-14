@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'ug', {
 	paste: 'چاپلا',
 	pasteNotification: 'چاپلانغىنى 1% . سىزنىڭ تور كۆرگۈچىڭىز قۇرال تەكچىسى ۋە سىيرىلما تاللاپ چاپلاش ئىقتىدارىنى قوللىمايدىكەن .',
 	pasteArea: 'چاپلاش دائىرىسى',
-	pasteMsg: 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .'
+	pasteMsg: 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

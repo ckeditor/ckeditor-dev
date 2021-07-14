@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'sr', {
 	paste: 'Залепи',
 	pasteNotification: 'Притисните тастер %1 за лепљење. Ваш ретраживач не дозвољаба лепљење из алатне траке или мениа.',
 	pasteArea: 'Залепи зону',
-	pasteMsg: 'Налепите садржај у следећи простор и притисните тастер OK.'
+	pasteMsg: 'Налепите садржај у следећи простор и притисните тастер OK.',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

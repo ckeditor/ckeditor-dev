@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'af', {
 	paste: 'Byvoeg',
 	pasteNotification: 'Druk %1 om by te voeg. You leser ondersteun nie die toolbar knoppie of inoud kieslysie opsie nie. ',
 	pasteArea: 'Area byvoeg',
-	pasteMsg: 'Voeg jou inhoud in die gebied onder by en druk OK'
+	pasteMsg: 'Voeg jou inhoud in die gebied onder by en druk OK',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );

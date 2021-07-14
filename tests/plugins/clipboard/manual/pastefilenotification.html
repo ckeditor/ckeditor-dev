@@ -1,0 +1,24 @@
+<h2>Classic editor</h2>
+<div id="editor">
+	<p>Paste image here.</p>
+</div>
+
+<h2>Inline editor</h2>
+<div id="inline" contenteditable="true" style="border:1px solid #000000;">
+	<p>Paste image here.</p>
+</div>
+
+<script>
+	var editor = CKEDITOR.replace( 'editor', {
+			language: 'en'
+		} ),
+		inline = CKEDITOR.inline( 'inline', {
+			language: 'en'
+		} );
+
+	editor.on( 'loaded', function() {
+		if( !CKEDITOR.plugins.clipboard.isFileApiSupported ){
+			bender.ignore();
+		}
+	} );
+</script>

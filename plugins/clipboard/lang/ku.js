@@ -10,5 +10,6 @@ CKEDITOR.plugins.setLang( 'clipboard', 'ku', {
 	paste: 'لکاندن',
 	pasteNotification: 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە -  کلیکی دەستی ڕاست. ',
 	pasteArea: 'ناوچەی لکاندن',
-	pasteMsg: 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە'
+	pasteMsg: 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە',
+	fileFormatNotSupportedNotification: 'This file format is not supported. You can try with one of the supported formats: PNG, JPG or GIF.' // MISSING
 } );
