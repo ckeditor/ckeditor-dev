@@ -1,5 +1,6 @@
 @bender-tags: 4.16.2, 4444, bug
 @bender-ui: collapsed
+@bender-ckeditor-plugins: wysiwygarea, print, font, colorbutton, format, clipboard, pagebreak, toolbar, floatingspace, link, image2
 
 ## Steps
 1. Click preview button.

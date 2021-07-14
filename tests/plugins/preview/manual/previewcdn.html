@@ -1,19 +1,71 @@
-<iframe width="800px" height="400px" id="cdn"></iframe>
+<div id="editor"></div>
+<div id="loading_box" style="margin: 20px 0"></div>
+<div id="editor_cdn">
+	<h1>Sample <span style="color: red;">document</span></h1>
+	<p>Lorem ipsum</p>
+	<div style="page-break-after:always">
+		<span style="display:none">&nbsp;</span>
+	</div>
+	<p>dolor sit amet.</p>
+</div>
 
 <script>
-	// Encapsulate environment inside iframe.
-	// It's prevent to open local version of CKEDITOR by bender.
-	var iframe = document.getElementById('cdn'),
-		doc = iframe.contentWindow.document,
-		template = '<h1>Sample <span style="color: red;">document</span></h1>' +
-			'<p>Lorem ipsum</p>' +
-			'<div style="page-break-after:always"><span style="display:none">&nbsp;</span></div>' +
-			'<p>dolor sit amet.</p>';
+	// 1. Load local editor by default with bender.
+	// 2. Remove existing instance and add script with editor from CDN.
+	// 3. Wait for the new editor to be loaded from CDN and initialize it.
+	// 4. Add icons in IE <11 from local.
+	var path = 'https://raw.githack.com/ckeditor/ckeditor4/be63bc46be15478259dfbca94de6a019b0b0145c';
 
-	doc.open();
-	// CDN points into commit revision with bug fix.
-	doc.write( '<script src="https://raw.githack.com/ckeditor/ckeditor4/be63bc46be15478259dfbca94de6a019b0b0145c/ckeditor.js"><\/script>' );
-	doc.write( '<div id="editor">' + template + '</div>' );
-	doc.write( '<script>CKEDITOR.replace( "editor", { plugins: "wysiwygarea, print, pagebreak, toolbar, clipboard, image, floatingspace, link" } )<\/script>' );
-	doc.close();
+	CKEDITOR.replace( 'editor' );
+	CKEDITOR.once( 'instanceReady', function() {
+		var scripts = [].slice.call( document.querySelectorAll( 'script' ) );
+
+		CKEDITOR.tools.array.forEach( scripts, function( script ){
+			script.parentNode.removeChild( script );
+		} );
+
+		CKEDITOR.instances.editor.destroy();
+		delete window.CKEDITOR;
+
+		var newScript = document.createElement( 'script' ),
+			loadingBox = document.getElementById( 'loading_box' ),
+			loadingText = 'loading editor from CDN';
+
+		newScript.type = 'text/javascript';
+		newScript.src = path + '/ckeditor.js';
+		document.head.appendChild( newScript );
+
+		var interval = setInterval( function() {
+			try {
+				if( CKEDITOR.status === 'loaded' ){
+					clearInterval( interval );
+
+					CKEDITOR.replace( 'editor_cdn', { plugins: 'wysiwygarea, print, pagebreak, toolbar, clipboard, image, floatingspace, link, basicstyles' } );
+					loadingBox.textContent = 'Editor from CDN was loaded successfully!';
+
+					// There is problem in IE <11 with receiving icons from githack so we must add it manually.
+					if( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ){
+						CKEDITOR.once( 'instanceReady', function() {
+							fixButtonsIcons();
+						} );
+					}
+				}else {
+					loadingText += '.';
+					loadingBox.textContent = loadingText;
+				}
+			} catch ( e ) {}
+		}, 200 );
+	} );
+
+	function fixButtonsIcons() {
+		var buttons = [].slice.call( document.querySelectorAll( '.cke_button .cke_button_icon' ) );
+
+		CKEDITOR.tools.array.forEach( buttons, function( button ){
+			var actualPath = button.style.backgroundImage,
+				origin = window.location.protocol + '//' + window.location.host,
+				fixedPath = actualPath.split( path ).join( origin );
+
+			button.style.backgroundImage = fixedPath;
+		} );
+	}
 </script>
