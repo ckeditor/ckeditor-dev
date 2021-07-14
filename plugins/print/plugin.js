@@ -52,11 +52,6 @@
 	 */
 	CKEDITOR.plugins.print = {
 		exec: function( editor ) {
-			// (#4444)
-			if ( CKEDITOR.env.gecko ) {
-				editor.plugins.preview.setPrintListener = true;
-			}
-
 			var previewWindow = CKEDITOR.plugins.preview.createPreview( editor ),
 				nativePreviewWindow;
 
@@ -71,15 +66,6 @@
 			// print must be performed after the document is complete.
 			if ( nativePreviewWindow.document.readyState === 'complete' ) {
 				return print();
-			}
-
-			// Wait for readyState 'complete' status (#4444).
-			if ( CKEDITOR.env.gecko ) {
-				nativePreviewWindow.onPreviewReady = function( evt ) {
-					if ( evt.target.readyState ) {
-						return print();
-					}
-				};
 			}
 
 			previewWindow.once( 'load', print );

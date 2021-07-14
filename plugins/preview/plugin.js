@@ -113,8 +113,7 @@
 				'<link rel="stylesheet" media="screen" href="' + pluginPath + 'styles/screen.css">' +
 			'</head>' + createBodyHtml() +
 				editor.getData() +
-				setReadyStateListener() +
-		'</body></html>';
+			'</body></html>';
 
 		function generateBaseTag() {
 			var template = '<base href="{HREF}">',
@@ -155,21 +154,6 @@
 			}
 
 			return html;
-		}
-
-		// FF tries to start printing before page is loaded. The browser has wait for this (#4444).
-		function setReadyStateListener() {
-			if ( !editor.plugins.preview.setPrintListener ) {
-				return '';
-			}
-
-			return '<script>' +
-				'document.onreadystatechange = function( evt ) { ' +
-					'if ( evt.target.readyState === "complete" ) {' +
-						'onPreviewReady( evt )' +
-					'}' +
-				'}' +
-			'</script>';
 		}
 	}
 
