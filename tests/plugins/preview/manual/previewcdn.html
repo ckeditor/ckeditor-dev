@@ -18,14 +18,15 @@
 
 	CKEDITOR.replace( 'editor' );
 	CKEDITOR.once( 'instanceReady', function() {
-		var scripts = [].slice.call( document.querySelectorAll( 'script' ) );
+		var scripts = document.querySelectorAll( 'script' ),
+			head = document.head || document.getElementsByTagName("head")[0];
 
 		CKEDITOR.tools.array.forEach( scripts, function( script ){
 			script.parentNode.removeChild( script );
 		} );
 
 		CKEDITOR.instances.editor.destroy();
-		delete window.CKEDITOR;
+		window.CKEDITOR = null;
 
 		var newScript = document.createElement( 'script' ),
 			loadingBox = document.getElementById( 'loading_box' ),
@@ -33,7 +34,7 @@
 
 		newScript.type = 'text/javascript';
 		newScript.src = path + '/ckeditor.js';
-		document.head.appendChild( newScript );
+		head.appendChild( newScript );
 
 		var interval = setInterval( function() {
 			try {
@@ -58,7 +59,7 @@
 	} );
 
 	function fixButtonsIcons() {
-		var buttons = [].slice.call( document.querySelectorAll( '.cke_button .cke_button_icon' ) );
+		var buttons = document.querySelectorAll( '.cke_button .cke_button_icon' );
 
 		CKEDITOR.tools.array.forEach( buttons, function( button ){
 			var actualPath = button.style.backgroundImage,

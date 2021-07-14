@@ -3,6 +3,7 @@
 @bender-ckeditor-plugins: wysiwygarea, print, font, colorbutton, format, clipboard, pagebreak, toolbar, floatingspace, link, image2
 
 ## Steps
+1. Wait for the editor to load.
 1. Click preview button.
 1. Open browser console in the new tab.
 
