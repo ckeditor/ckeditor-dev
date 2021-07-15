@@ -1,0 +1,52 @@
+<div id="editor">
+
+    <p><strong><i>Test</i></strong></p>
+
+    <p>Test <a id="test" name="test">anchor</a></p>
+
+    <p><sub>te</sub>st test</p>
+
+    <h1>Test heading <strong>styled</strong><em> words</em></h1>
+
+    <ul>
+        <li>first</li>
+        <li><strong><em>second</em></strong> item</li>
+        <li><strong>thrid</strong></li>
+    </ul>
+
+    <ol>
+        <li>ordered list</li>
+        <li>test</li>
+    </ol>
+
+    <table border="1" cellspacing="1" cellpadding="1" style="width: 100%;">
+        <tbody>
+            <tr>
+                <td><strong>test</strong></td>
+                <td><u><em><strong>test</strong></em></u><br></td>
+            </tr>
+            <tr>
+                <td><em>test</em><br></td>
+                <td><strong><u>test</u></strong><br></td>
+            </tr>
+            <tr>
+                <td><u>test</u><br></td>
+                <td><strong><em><s><u>test</u></s></em></strong><br></td>
+            </tr>
+            <tr>
+                <td><s>test</s><br></td>
+                <td><u><s>test</s></u><br></td>
+            </tr>
+            <tr>
+                <td><em><strong>test</strong></em><br></td>
+                <td><s><em>test</em></s><br></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var editor = CKEDITOR.replace('editor', {
+        height: 500
+    });
+</script>
