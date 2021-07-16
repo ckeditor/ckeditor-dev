@@ -122,8 +122,7 @@
 			var savedState = CKEDITOR.TRISTATE_OFF;
 
 			editor.addCommand( 'maximize', {
-				// Disabled on iOS (https://dev.ckeditor.com/ticket/8307).
-				modes: { wysiwyg: !CKEDITOR.env.iOS, source: !CKEDITOR.env.iOS },
+				modes: { wysiwyg: 1, source: 1 },
 				readOnly: 1,
 				editorFocus: false,
 				exec: function() {
