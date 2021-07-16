@@ -19,7 +19,7 @@
 	CKEDITOR.replace( 'editor' );
 	CKEDITOR.once( 'instanceReady', function() {
 		var scripts = document.querySelectorAll( 'script' ),
-			head = document.head || document.getElementsByTagName("head")[0];
+			head = CKEDITOR.document.getHead();
 
 		CKEDITOR.tools.array.forEach( scripts, function( script ){
 			script.parentNode.removeChild( script );
@@ -34,7 +34,7 @@
 
 		newScript.type = 'text/javascript';
 		newScript.src = path + '/ckeditor.js';
-		head.appendChild( newScript );
+		document.head.appendChild( newScript );
 
 		var interval = setInterval( function() {
 			try {
